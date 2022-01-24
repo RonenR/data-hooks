@@ -8,7 +8,16 @@
     <div data-ws-show-if="isSignedIn"><p>Welcome <span data-ws-label="user.name"></span></p></div>
     <div data-ws-show-if-not="isSignedIn"><p>Sign in to start</p></div>
 
-    <!--<script src="build/bundle.js"></script>-->
+    <button data-ws-onclick="foo">Foo</button>
+
+    <script>
+        window.wsGlobals = window.wsGlobals || {};
+        wsGlobals.foo = function() {
+            alert('data-ws-hooks working! :)');
+        }
+    </script>
+
     <script src="https://unpkg.com/web_page_state/build/bundle.min.js"></script>
+    <script src="https://unpkg.com/data-ws-hooks/build/bundle.min.js"></script>
 </body>
 </html>
