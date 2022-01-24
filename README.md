@@ -4,11 +4,11 @@
 
 It hooks between HTML tags and attributes to js functions or events.
 
-[See published npm package](https://www.npmjs.com/package/data-hooks)
+[See published npm package](https://www.npmjs.com/package/data-ws-hooks)
 
 ## Import:
 
-- Web: `<script src="https://unpkg.com/data-hooks/build/bundle.min.js"></script>`
+- Web: `<script src="https://unpkg.com/data-ws-hooks/build/bundle.min.js"></script>`
 - Node: `npm i data-hooks`
 
 ## How to use?
