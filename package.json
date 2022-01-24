@@ -1,0 +1,30 @@
+{
+  "name": "data-hooks",
+  "version": "0.0.1",
+  "description": "Hooks html tags to js actions by using custom data attributes. Bootsratp style. Specifically useful for easily handling click events.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "mkdir build; browserify browserify.js > build/bundle.js; terser build/bundle.js -c drop_console=true > build/bundle.min.js; git add .; npm version patch -m \"Release %s\" -f; git push;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonenR/data-hooks.git"
+  },
+  "keywords": [
+    "dom",
+    "hooks",
+    "bootstrap",
+    "speechnotes",
+    "ttsreader",
+    "wellsrc",
+    "speechlogger",
+    "onclick"
+  ],
+  "author": "Ronen Rabinovici",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RonenR/data-hooks/issues"
+  },
+  "homepage": "https://github.com/RonenR/data-hooks#readme"
+}
