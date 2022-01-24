@@ -9,7 +9,7 @@ It hooks between HTML tags and attributes to js functions or events.
 ## Import:
 
 - Web: `<script src="https://unpkg.com/data-ws-hooks/build/bundle.min.js"></script>`
-- Node: `npm i data-hooks`
+- Node: `npm i data-ws-hooks`
 
 ## How to use?
 
