@@ -1,6 +1,6 @@
 {
   "name": "data-ws-hooks",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Hooks html tags to js actions by using custom data attributes. Bootsratp style. Specifically useful for easily handling click events.",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/RonenR/data-hooks/issues"
   },
-  "homepage": "https://github.com/RonenR/data-hooks#readme"
+  "homepage": "https://github.com/RonenR/data-hooks#readme",
+  "dependencies": {
+    "object-resolve-path": "^1.1.1"
+  }
 }

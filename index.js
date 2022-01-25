@@ -1,3 +1,5 @@
+const resolvePath = require('object-resolve-path');
+
 const DATA_ATTRIBUTE_NAMES = {
     onClick: "data-ws-onclick",
     tabData: "data-ws-tab",
@@ -17,7 +19,7 @@ class GenericDomHooks {
     static setDataOnClickHooks() {
         let attributeName = DATA_ATTRIBUTE_NAMES.onClick;
         let wsGlobals = window.wsGlobals || {};
-        //debugger;
+
         document.querySelectorAll( "[" + attributeName + "]" ).forEach((el)=>{
             el.addEventListener('click',(ev)=> {
                 if (ev.currentTarget instanceof Element) {
@@ -32,9 +34,14 @@ class GenericDomHooks {
                             GenericDomHooks.hideClass(name);
                         }
                     } else {
-                        let action = wsGlobals[value] || window[value];
-                        if (action && action instanceof Function) {
-                            action(ev.currentTarget);
+                        let valueFunction;
+                        try {
+                            valueFunction = resolvePath(wsGlobals,value) || resolvePath(window,value);
+                        } catch (e) {
+                            valueFunction = null;
+                        }
+                        if (valueFunction && (valueFunction instanceof Function)) {
+                            valueFunction(ev.currentTarget);
                         }
                     }
                 }
