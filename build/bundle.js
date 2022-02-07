@@ -37,6 +37,23 @@ class GenericDomHooks {
 
                         if (action=="hideClass" && name) {
                             GenericDomHooks.hideClass(name);
+                        } else if (action=="copy") {
+                            let target;
+                            let text;
+                            if (!name) {
+                                target = ev.currentTarget;
+                            } else if (name.includes("#")) {
+                                let parts = name.split("#")[1].split(":");
+                                target = document.getElementById(parts[0]);
+                                if (parts.length>=2) {
+                                    parts[0] = "";
+                                    text = parts.join(":");
+                                }
+                            } else {
+                                text = name;
+                            }
+
+                            GenericDomHooks.copyInputValue(target, text);
                         }
                     } else {
                         let valueFunction;
@@ -116,6 +133,53 @@ class GenericDomHooks {
         });
     }
 
+    static copyInputValue(target, text) {
+        debugger;
+        console.log('copyInputValue, ', target, text);
+        let successMessage = "✅ Copied successfully";
+        // console.log(target);
+        let el = target;
+        let value = text;
+        if (!text) {
+            if (target.tagName.toLowerCase() != "input") {
+                el = target.querySelector("input");
+            }
+            if (!el) {
+                return;
+            }
+            value = el.value;
+            if (value == successMessage) {
+                return;
+            }
+        }
+
+        this.copyToClipboard(value, (isSuccess)=>{
+            if (isSuccess) {
+                el.value = successMessage;
+                setTimeout(()=>{
+                    el.value = value;
+                },1000);
+            } else {}
+        });
+
+    }
+
+    static async copyToClipboard (txt, ondone) {
+        console.log('copyTo... ', txt, ondone);
+        try {
+            //document.body.focus();
+            await navigator.clipboard.writeText(txt);
+            if (ondone) {
+                ondone(true);
+            }
+            return true;
+        } catch (err) {
+            if (ondone) {
+                ondone(false);
+            }
+            return false;
+        }
+    };
 }
 
 GenericDomHooks.initAll();

@@ -36,4 +36,8 @@ This is used on the following sites:
 
 - It sometimes hides by styling directly and sometimes by toggling "hidden" class. Inconsistent...
 - Allow more than a single set of tabs on page... Perhaps contain tabs in a parent... 
-- 
+
+# How to contribute & publish updates to this package?
+- This package is published both on GitHub and on npmjs.
+- To publish an updated version - simply run `npm publish`, it will commit & push updates both to github and npm.
+
