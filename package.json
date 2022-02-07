@@ -1,6 +1,6 @@
 {
   "name": "data-ws-hooks",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Hooks html tags to js actions by using custom data attributes. Bootsratp style. Specifically useful for easily handling click events.",
   "main": "index.js",
   "scripts": {

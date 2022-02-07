@@ -129,20 +129,25 @@ class GenericDomHooks {
     }
 
     static copyInputValue(target, text) {
-        debugger;
+        //debugger;
         console.log('copyInputValue, ', target, text);
         let successMessage = "✅ Copied successfully";
         // console.log(target);
         let el = target;
         let value = text;
         if (!text) {
-            if (target.tagName.toLowerCase() != "input") {
-                el = target.querySelector("input");
-            }
-            if (!el) {
-                return;
-            }
             value = el.value;
+            if (!value) {
+                if (target.tagName.toLowerCase() != "input") {
+                    el = target.querySelector("input");
+                }
+                if (!el) {
+                    return;
+                } else {
+                    value = el.value;
+                }
+            }
+
             if (value == successMessage) {
                 return;
             }

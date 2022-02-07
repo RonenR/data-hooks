@@ -31,11 +31,11 @@ It hooks between HTML tags and attributes to js functions or events.
 Run as:
 `data-ws-onclick="some_action:optional_param"`
 
-| Actions                                      | Note                                                 | Example                                                                    |
-|----------------------------------------------|------------------------------------------------------|----------------------------------------------------------------------------|
-| hideClass:some_class                         | Hide all elements of class some_class.               | - `<button data-ws-onclick="hideClass:popup">Close popup</button>`         |
-| copy                                         | Copy the value attribute of clicked element          | - `<input data-ws-onclick="copy" type:"text" value="this will be copied"/>` |
-| copy:#some_element_id                  | Copy the value attribute of #some_element_id element | - `<button data-ws-onclick="copy:#some_element_id" >Copy</button>`         |
+| Actions               | Note                                                 | Example                                                                    |
+|-----------------------|------------------------------------------------------|----------------------------------------------------------------------------|
+| hideClass:some_class  | Hide all elements of class some_class.               | - `<button data-ws-onclick="hideClass:popup">Close popup</button>`         |
+| copy:                 | Copy the value attribute of clicked element          | - `<input data-ws-onclick="copy" type:"text" value="this will be copied"/>` |
+| copy:#some_element_id | Copy the value attribute of #some_element_id element | - `<button data-ws-onclick="copy:#some_element_id" >Copy</button>`         |
 
 
 ## Showcases
