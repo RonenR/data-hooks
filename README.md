@@ -16,7 +16,7 @@ It hooks between HTML tags and attributes to js functions or events.
 
 **Important! This works if css defines class "hidden" as "display:none", as the hiding here works by toggling this class**
 
-**- HTML**
+**- HTML Attributes**
 
 | Attribute                    | Note                                                                                                                                                                                                                                                                                            | Example                                                                                                                                  |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,6 +24,18 @@ It hooks between HTML tags and attributes to js functions or events.
 | data-ws-tab                  | Combined with the classes: "tab-selector", "tab-selector selected", "tab-section", "tab-section hidden" it gives a tab functionality.  <br>**Important!** Allows a single set of tabs per page!                                                                                                 | `<div><span class="tab-selector selected" data-ws-tab="tab1">Tab1</span><span class="tab-selector" data-ws-tab="tab2">Tab2</span></div>` |
 | data-ws-toggle-hidden-data   | Defines elements to be toggled 'hidden' class when a respective button is clicked.                                                                                                                                                                                                              | `<div data-ws-toggle-hidden-data='signin-dialog'>...</div>`                                                                              |
 | data-ws-toggle-hidden-button | When clicked, toggle 'hidden' class on all elements that share the value in their "data-ws-toggle-hidden-data" attribute.                                                                                                                                                                       | `<button data-ws-toggle-hidden-button='signin-dialog'>Sign In</button>`                                                                  |
+
+
+**- Built-in onclick actions**
+
+Run as:
+`data-ws-onclick="some_action:optional_param"`
+
+| Actions                                      | Note                                                 | Example                                                                    |
+|----------------------------------------------|------------------------------------------------------|----------------------------------------------------------------------------|
+| hideClass:some_class                         | Hide all elements of class some_class.               | - `<button data-ws-onclick="hideClass:popup">Close popup</button>`         |
+| copy                                         | Copy the value attribute of clicked element          | - `<input data-ws-onclick="copy" type:"text" value="this will be copied"/>` |
+| copy:#some_element_id                  | Copy the value attribute of #some_element_id element | - `<button data-ws-onclick="copy:#some_element_id" >Copy</button>`         |
 
 
 ## Showcases

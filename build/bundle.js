@@ -39,21 +39,16 @@ class GenericDomHooks {
                             GenericDomHooks.hideClass(name);
                         } else if (action=="copy") {
                             let target;
-                            let text;
                             if (!name) {
                                 target = ev.currentTarget;
                             } else if (name.includes("#")) {
                                 let parts = name.split("#")[1].split(":");
                                 target = document.getElementById(parts[0]);
-                                if (parts.length>=2) {
-                                    parts[0] = "";
-                                    text = parts.join(":");
-                                }
-                            } else {
-                                text = name;
                             }
 
-                            GenericDomHooks.copyInputValue(target, text);
+                            if (target) {
+                                GenericDomHooks.copyInputValue(target);
+                            }
                         }
                     } else {
                         let valueFunction;
