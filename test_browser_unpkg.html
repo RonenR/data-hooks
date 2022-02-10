@@ -23,7 +23,7 @@
     <button data-ws-onclick="fooParent2.foo">Nested Foo2</button>
 
     <input id="input_id" data-ws-onclick="copy:" value="test value 4" type="text"/>
-    <button data-ws-onclick="copy:" value="test value 3" >Copy</button>
+    <button data-ws-onclick="copy:#input_id" value="test value 3" >Copy</button>
     <script>
         window.wsGlobals = window.wsGlobals || {};
         wsGlobals.foo = function() {

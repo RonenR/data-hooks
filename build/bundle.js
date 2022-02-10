@@ -10,6 +10,7 @@ const DATA_ATTRIBUTE_NAMES = {
     tabData: "data-ws-tab",
     toggleHiddenButton: "data-ws-toggle-hidden-button",
     toggleHiddenData: "data-ws-toggle-hidden-data",
+    srcHook: "data-ws-src",
 }
 
 class GenericDomHooks {
@@ -17,6 +18,7 @@ class GenericDomHooks {
     // TODO: Add all hooks to here - this will be the only one called:
     static initAll() {
         GenericDomHooks.setDataOnClickHooks();
+        GenericDomHooks.setSrcHooks();
         GenericDomHooks.setTabSelectorsHooks();
         GenericDomHooks.setToggleHiddenHooks();
     }
@@ -63,6 +65,16 @@ class GenericDomHooks {
                     }
                 }
             });
+        });
+    };
+
+    static setSrcHooks() {
+        let attributeName = DATA_ATTRIBUTE_NAMES.srcHook;
+        let wsGlobals = window.wsGlobals || {};
+
+        document.querySelectorAll( "[" + attributeName + "]" ).forEach((el)=>{
+            let src = el.getAttribute(attributeName);
+            el.setAttribute("src", src);
         });
     };
 
